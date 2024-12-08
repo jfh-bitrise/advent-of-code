@@ -19,14 +19,14 @@ fn main() {
     }
 
     for i in 0..results.len() {
-        if check(results[i], nums[i].clone()) {
+        if check(results[i], &nums[i]) {
             sum += results[i] as i128;
         }
     }
     println!("Good results: {}", sum)
 }
 
-fn check(r: i64, n: Vec<i64>) -> bool {
+fn check(r: i64, n: &Vec<i64>) -> bool {
     let methods = vec!["add", "mul", "com"];
 
     let mut combs: Vec<Vec<&str>> = Vec::new();
@@ -65,8 +65,6 @@ fn check(r: i64, n: Vec<i64>) -> bool {
             return true
         }
     }
-
-    // println!("Miss: {}: {:?}", r, n);
 
     return false
 }
